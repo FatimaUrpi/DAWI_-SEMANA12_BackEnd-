@@ -106,15 +106,23 @@ export class ConsultaRevistaComponent {
       }
 
       exportarExcel() {
-
+            console.log(">>> Filtrar [ini]");
+            console.log(">>> varNombre: "+this.varNombre);
+            console.log(">>> varFrecuencia: "+this.varFrecuencia);
+            console.log(">>> varEstado: "+this.varEstado);
+            console.log(">>> varFechaCreacionDesde: "+this.varFechaCreacionDesde.toISOString());
+            console.log(">>> varFechaCreacionHasta: "+this.varFechaCreacionHasta.toISOString());
+            console.log(">>> varIdPais: "+this.varIdPais);
+            console.log(">>> varIdTipo: "+this.varIdTipo);
+            
         this.revistaService.generateDocumentExcel( 
-                              this.varNombre, 
-                              this.varFrecuencia, 
-                              this.varFechaCreacionDesde.toISOString(), 
-                              this.varFechaCreacionHasta.toISOString(), 
-                              this.varEstado ? 1 : 0, 
-                              this.varIdPais, 
-                              this.varIdTipo).subscribe(
+            this.varNombre, 
+            this.varFrecuencia, 
+            this.varFechaCreacionDesde.toISOString(), 
+            this.varFechaCreacionHasta.toISOString(), 
+            this.varEstado ? 1 : 0, 
+            this.varIdPais, 
+            this.varIdTipo).subscribe(
               response => {
                 console.log(response);
                 var url = window.URL.createObjectURL(response.data);
